@@ -43,6 +43,15 @@
           "default": 5,
           "description": "If set, when entering temporary vim motions, shows surrounding lines when scrolling close to editor top/bottom.",
           "minimum": 0
+        },
+        "temporary-vim-motions.delayTyping": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "default": 200,
+          "description": "The delay time for execute the vim motion after typing.",
+          "minimum": 1
         }
       }
     }

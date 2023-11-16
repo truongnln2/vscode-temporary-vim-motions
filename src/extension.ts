@@ -62,10 +62,17 @@ export function activate(context: vscode.ExtensionContext) {
             disposer.add(await enableScrollPadding(surroundingLinesSetting));
           }
 
+          let delayTypingSetting: number | undefined = extensionSettings.get(
+            "delayTyping",
+          );
+          if (delayTypingSetting && typeof delayTypingSetting !== "number") {
+            delayTypingSetting = undefined;
+          }
           await processVimMotionInput({
             disposer: new HierarchicalDisposer(some(disposer)),
             editor: activeTextEditor,
             highlighter,
+            delayTypingSetting,
           });
         },
       ),
