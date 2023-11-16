@@ -1,8 +1,8 @@
 import { left, right } from "fp-ts/lib/Either";
 import { none } from "fp-ts/lib/Option";
-import { MotionParser } from "../shared";
+import { BaseVimMotion, MotionParser } from "../shared";
 
-export interface StartEndOfLineMotion {
+export interface StartEndOfLineMotion extends BaseVimMotion {
   type: "start-end-line";
   variant: "start" | "end";
 }

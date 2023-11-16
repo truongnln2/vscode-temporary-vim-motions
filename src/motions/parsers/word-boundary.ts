@@ -1,7 +1,7 @@
 import { chain, left, right } from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
 import { none } from "fp-ts/lib/Option";
-import { MotionParser } from "../shared";
+import { BaseVimMotion, MotionParser } from "../shared";
 import { parseOptionalNumber } from "./internal";
 
 export enum WordBoundaryVariant {
@@ -10,7 +10,7 @@ export enum WordBoundaryVariant {
   end = "e",
 }
 
-export interface WordBoundaryMotion {
+export interface WordBoundaryMotion extends BaseVimMotion{
   type: "word-boundary";
   variant: WordBoundaryVariant;
   times: number;

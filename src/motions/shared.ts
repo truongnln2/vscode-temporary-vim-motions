@@ -16,3 +16,12 @@ export interface MotionParseResult<M> {
 export type MotionParser<M> = (
   input: string,
 ) => Either<Option<Error>, MotionParseResult<M>>;
+
+export interface BaseVimMotion {
+  type: string;
+  requireAwait?: "yes";
+}
+
+export interface AwaitLastVimMotion extends BaseVimMotion {
+  requireAwait: "yes";
+}

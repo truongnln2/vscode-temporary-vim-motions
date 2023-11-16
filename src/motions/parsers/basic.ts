@@ -2,9 +2,9 @@ import { chain, left, right } from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
 import { none } from "fp-ts/lib/Option";
 import { parseOptionalNumber } from "./internal";
-import { MotionParser } from "../shared";
+import { BaseVimMotion, MotionParser } from "../shared";
 
-export interface BasicMotion {
+export interface BasicMotion extends BaseVimMotion {
   type: "basic";
   direction: "up" | "down" | "left" | "right";
   lines: number;
