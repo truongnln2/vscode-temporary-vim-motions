@@ -80,7 +80,7 @@ export const executeMotions = (editor: TextEditor) => async (
 ): Promise<void> => {
   let lastCommand: Thenable<unknown> = Promise.resolve();
   if (initialPosition) {
-    lastCommand = restoreInitialPosition(editor, initialPosition);
+    await restoreInitialPosition(editor, initialPosition);
   }
   let selectMode = false;
 
@@ -89,6 +89,7 @@ export const executeMotions = (editor: TextEditor) => async (
     if (motion.requireAwait || selectMode) {
       await lastCommand;
     }
+    
     lastCommand = (() => {
       let command = '';
       switch (motion.type) {
